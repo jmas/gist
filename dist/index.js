@@ -2723,7 +2723,9 @@ var _ui = _dereq_('./ui');
 var _gist = _dereq_('./gist');
 
 function tryGistFromUrl() {
-  var gistId = location.hash.substring(1);
+  var gistIdFromHash = location.hash.substring(1);
+  var gistIdFromSearch = location.search.substring(1);
+  var gistId = gistIdFromHash || gistIdFromSearch;
   if (gistId) {
     return (0, _gist.requestGist)(gistId).then(function (content) {
       if (!content) {
