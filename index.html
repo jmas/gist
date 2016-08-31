@@ -1,0 +1,12 @@
+<html>
+<script>
+window.fetch(location.search.substring(1)).then((res) => {
+	return res.json();
+}).then((content) => {
+	var html = content.files['index.html'].content;
+	var js = content.files['todomvc.js'].content;
+  document.body.innerHTML = html;
+  eval(js);
+});
+</script>
+</html>
