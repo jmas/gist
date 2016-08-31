@@ -1,6 +1,6 @@
 <html>
 <script>
-window.fetch(location.search.substring(1)).then((res) => {
+window.fetch('https://api.github.com/gists/'+location.search.substring(1)).then((res) => {
 	return res.json();
 }).then((content) => {
 	var html = content.files['index.html'].content;
