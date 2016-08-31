@@ -1,12 +1,11 @@
+<!doctype html>
 <html>
-<script>
-window.fetch('https://api.github.com/gists/'+location.search.substring(1)).then((res) => {
-	return res.json();
-}).then((content) => {
-	var html = content.files['index.html'].content;
-	var js = content.files['index.js'].content;
-  document.body.innerHTML = html;
-  eval(js);
-});
-</script>
+  <head>
+    <title>View Gist</title>
+    <link href="dist/index.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="dist/index.js"></script>
+  </body>
 </html>
