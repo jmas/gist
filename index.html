@@ -4,7 +4,7 @@ window.fetch('https://api.github.com/gists/'+location.search.substring(1)).then(
 	return res.json();
 }).then((content) => {
 	var html = content.files['index.html'].content;
-	var js = content.files['todomvc.js'].content;
+	var js = content.files['index.js'].content;
   document.body.innerHTML = html;
   eval(js);
 });
