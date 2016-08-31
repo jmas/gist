@@ -2,7 +2,9 @@ import { render } from './ui';
 import { requestGist, extractId, renderGist } from './gist';
 
 function tryGistFromUrl() {
-  let gistId = location.hash.substring(1);
+  let gistIdFromHash = location.hash.substring(1);
+  let gistIdFromSearch = location.search.substring(1);
+  let gistId = gistIdFromHash || gistIdFromSearch;
   if (gistId) {
     return requestGist(gistId).then((content) => {
       if (!content) {
