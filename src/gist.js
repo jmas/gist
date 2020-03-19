@@ -1,5 +1,5 @@
 export function loadGist (id) {
-  return window.fetch('https://api.github.com/gists/'+id).then((res) => {
+  return window.fetch('https://api.github.com/gists/'+id+'?'+Math.random()).then((res) => {
     return res.json();
   });
 }
