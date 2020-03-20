@@ -1,11 +1,20 @@
 <!doctype html>
 <html>
   <head>
-    <title>View Gist</title>
-    <link href="dist/index.css" rel="stylesheet" type="text/css" />
+    <title>Run Gist</title>
+    <link href="index.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script src="dist/index-v2.js"></script>
+    <div id="welcome" style="display: none;">
+      <h1>Run Gist</h1>
+      <p>You can run gist in browser &ndash; just put to gist files named <code>index.js</code> and/or <code>index.html</code>, <code>index.css</code>.</p>
+      <p>Benefits: gist could be accessed by git and versioned, you could use forks to manage you gists with your collegs, you could be less depends on payed services like Codepen, you could store in gist other files like documentation.</p>
+      <p><a href="https://github.com/jmas/gist/">Improve project on GitHub</a>.</p>
+      <form>
+        <input type="text" name="url" placeholder="https://gist.github.com/username/gist_id">
+        <button>Run Gist</button>
+      </form>
+    </div>
+    <script src="index.js"></script>
   </body>
 </html>
