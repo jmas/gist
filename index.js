@@ -14,11 +14,11 @@ function runGist(gist) {
 }
 
 function validateGistUrl(gistUrl) {
-    return /https:\/\/gist\.(?:githubusercontent|github)\.com\/.+?\/raw\/.+?\/.+/.test(gistUrl);
+    return /https:\/\/gist\.(?:githubusercontent|github)\.com\/(.+?)\/.+?\/raw\/.+?\/.+/.test(gistUrl);
 }
 
 function parseGistUrl(gistUrl) {
-    var found = String(gistUrl).match(/https:\/\/gist\.(?:githubusercontent|github)\.com\/(.+?)\/raw\/(.+?)\/(.+)/);
+    var found = String(gistUrl).match(/https:\/\/gist\.(?:githubusercontent|github)\.com\/(.+?)\/(.+?)\/raw\/(.+?)\/(.+)/);
     return {
         username: found[1],
         id: found[2],
