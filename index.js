@@ -14,27 +14,30 @@ function runGist(gist) {
 }
 
 function validateGistUrl(gistUrl) {
-    return /\https:\/\/gist.github.com\/.+?\/.+/.test(gistUrl);
+    return /https:\/\/gist.githubusercontent.com\/.+?\/raw\/.+?\/.+/.test(gistUrl);
 }
 
 function parseGistUrl(gistUrl) {
-    var found = String(gistUrl).match(/\https:\/\/gist.github.com\/(.+?)\/(.+)/);
+    var found = String(gistUrl).match(/https:\/\/gist.githubusercontent.com\/(.+?)\/raw\/(.+?)\/(.+)/);
     return {
         username: found[1],
-        id: found[2]
+        id: found[2],
+        token: found[3],
+        file: found[4]
     };
 }
 
 function parseGistFromLocationHash(locationHash) {
-    var found = String(locationHash).match(/(.+?)\/(.+)/);
+    var found = String(locationHash).match(/(.+?)\/(.+?)\/(.+)/);
     return {
         username: found[1],
-        id: found[2]
+        id: found[2],
+        token: found[3]
     };
 }
 
 function requestGistFile(gist, file) {
-    return fetch('https://gist.githubusercontent.com/'+gist.username+'/'+gist.id+'/raw/'+file+'?'+Math.random()).then(function (response) {
+    return fetch('https://gist.githubusercontent.com/'+gist.username+'/'+gist.id+'/raw/'+gist.token+'/'+file+'?'+Math.random()).then(function (response) {
         if (response.status === 200) {
             return response.text();
         }
@@ -86,7 +89,7 @@ function prepareWelcome() {
 }
 
 function saveGistToLocationHash(gist) {
-    location.hash = '#'+gist.username+'/'+gist.id;
+    location.hash = '#'+gist.username+'/'+gist.id+'/'+gist.token;
 }
 
 function main() {
