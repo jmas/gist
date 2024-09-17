@@ -1,6 +1,3 @@
----
-description: ""
----
 # Gist Runner
 
 You can run [github gist](https://gist.github.com/) in browser - just put to gist files named <code>index.js</code> and/or <code>index.html</code>, <code>index.css</code>.
